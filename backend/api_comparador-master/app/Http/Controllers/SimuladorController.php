@@ -17,7 +17,6 @@ class SimuladorController extends Controller
         $convenios = $data['convenios'];
         $parcela = $data['parcela'];
 
-        // Carregar os dados dos arquivos JSON
         $taxas = json_decode(file_get_contents(storage_path('app/public/simulador/taxas_instituicoes.json')), true);
 
         $resultados = [];
@@ -82,8 +81,6 @@ class SimuladorController extends Controller
         }
         return $this;
     }
-
-    // SimuladorController.php
 
     private function filtrarConvenio(array $resultados, array $convenios) {
         return array_filter($resultados, function ($resultado) use ($convenios) {
